@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface-900 text-text-primary font-sans antialiased;
+    background-color: #071522;
+  }
+  * { -webkit-font-smoothing: antialiased; }
+}
+
+@layer components {
+  /* ── Panels ── */
+  .panel {
+    @apply bg-surface-700 rounded-[10px] border border-[rgba(59,157,255,0.12)] shadow-panel;
+  }
+  .panel-elevated {
+    @apply bg-surface-600 rounded-[10px] border border-[rgba(59,157,255,0.18)] shadow-panel-lg;
+  }
+  .panel-inset {
+    @apply bg-surface-800 rounded-lg border border-[rgba(59,157,255,0.08)];
+  }
+
+  /* ── Section labels ── */
+  .section-label {
+    @apply text-[10px] font-bold uppercase tracking-[0.12em] text-text-muted;
+  }
+  .panel-title {
+    @apply text-[11px] font-bold uppercase tracking-[0.10em] text-text-secondary;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-[8px] font-semibold text-[13px] transition-all duration-150 cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply bg-blue-400 text-white hover:bg-blue-500 active:scale-[0.97] shadow-glow-sm;
+  }
+  .btn-cyan {
+    @apply bg-cyan-400 text-surface-900 hover:bg-cyan-300 active:scale-[0.97] font-bold;
+  }
+  .btn-success {
+    @apply bg-success-400 text-surface-900 hover:bg-success-300 active:scale-[0.97] font-bold;
+  }
+  .btn-danger {
+    @apply bg-critical-500 text-white hover:bg-critical-400 active:scale-[0.97];
+  }
+  .btn-outline {
+    @apply border border-[rgba(59,157,255,0.25)] text-blue-300 bg-transparent hover:bg-[rgba(59,157,255,0.08)] active:scale-[0.97];
+  }
+  .btn-ghost {
+    @apply text-text-secondary hover:text-text-primary hover:bg-surface-600 active:scale-[0.97];
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-[12px];
+  }
+  /* Legacy aliases */
+  .btn-accent  { @apply btn-primary; }
+  .btn-outline-legacy { @apply border border-navy-200 text-navy-800 bg-white hover:bg-navy-50 active:scale-[0.98]; }
+
+  /* ── Status badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-[4px] text-[11px] font-bold uppercase tracking-wide;
+  }
+  .badge-blue    { @apply bg-[rgba(59,157,255,0.15)] text-blue-300 border border-[rgba(59,157,255,0.25)]; }
+  .badge-cyan    { @apply bg-[rgba(33,212,194,0.12)] text-cyan-300 border border-[rgba(33,212,194,0.25)]; }
+  .badge-success { @apply bg-[rgba(45,212,166,0.12)] text-success-400 border border-[rgba(45,212,166,0.25)]; }
+  .badge-warning { @apply bg-[rgba(246,184,74,0.12)] text-warning-300 border border-[rgba(246,184,74,0.25)]; }
+  .badge-critical{ @apply bg-[rgba(255,91,91,0.12)] text-critical-400 border border-[rgba(255,91,91,0.25)]; }
+  .badge-muted   { @apply bg-surface-600 text-text-secondary border border-[rgba(59,157,255,0.10)]; }
+
+  /* ── Table ── */
+  .data-table {
+    @apply w-full text-[13px];
+  }
+  .data-table thead tr {
+    @apply border-b border-[rgba(59,157,255,0.10)];
+  }
+  .data-table thead th {
+    @apply px-3 py-2 text-left text-[10px] font-bold uppercase tracking-[0.08em] text-text-muted;
+  }
+  .data-table tbody tr {
+    @apply border-b border-[rgba(255,255,255,0.03)] hover:bg-[rgba(59,157,255,0.04)] transition-colors cursor-pointer;
+  }
+  .data-table tbody td {
+    @apply px-3 py-2.5;
+  }
+
+  /* ── Inputs ── */
+  .cmd-input {
+    @apply bg-surface-800 border border-[rgba(59,157,255,0.15)] rounded-lg px-3 py-2 text-[13px] text-text-primary placeholder:text-text-muted focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all;
+  }
+  .cmd-select {
+    @apply bg-surface-800 border border-[rgba(59,157,255,0.15)] rounded-lg px-3 py-2 text-[13px] text-text-primary focus:outline-none focus:border-blue-400 cursor-pointer transition-all;
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #071522; }
+  ::-webkit-scrollbar-thumb { background: rgba(59,157,255,0.20); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(59,157,255,0.35); }
+  * { scrollbar-width: thin; scrollbar-color: rgba(59,157,255,0.20) #071522; }
+}
+
+/* ── Glowing rail line animation ── */
+@keyframes routePulse {
+  0%, 100% { stroke-opacity: 0.7; }
+  50%       { stroke-opacity: 1; }
+}
+.rail-pulse { animation: routePulse 2.5s ease-in-out infinite; }
+
+/* ── Train blip animation ── */
+@keyframes trainBlip {
+  0%, 100% { r: 5; opacity: 0.9; }
+  50%       { r: 7; opacity: 1; }
+}
+.train-blip { animation: trainBlip 1.8s ease-in-out infinite; }
+
+/* ── Gantt scroll ── */
+.gantt-scroll { overflow-x: auto; }
