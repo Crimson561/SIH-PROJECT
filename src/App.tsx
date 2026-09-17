@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useState, useCallback } from "react";
+import { RailOptXIntro } from "@/components/intro/RailOptXIntro";
+import { AboutRailOptXPage } from "@/components/intro/AboutRailOptXPage";
 import { Sidebar } from "@/components/Sidebar";
 import { Header } from "@/components/Header";
 import { Dashboard } from "@/components/dashboard/Dashboard";
@@ -26,7 +28,10 @@ const pageMeta: Record<string, { title: string; breadcrumb: string }> = {
   settings: { title: "Settings", breadcrumb: "System" },
 };
 
+type StartupView = "intro" | "about" | "app";
+
 function App() {
+  const [startupView, setStartupView] = useState<StartupView>("intro");
   const [activePage, setActivePage] = useState("dashboard");
   const [selectedTrainId, setSelectedTrainId] = useState<string | null>(null);
   const [extraTasks, setExtraTasks] = useState<MaintenanceTask[]>([]);
@@ -88,6 +93,19 @@ function App() {
       "info",
     );
   }, [showToast]);
+
+  if (startupView === "intro") {
+    return <RailOptXIntro onEnter={() => setStartupView("about")} />;
+  }
+
+  if (startupView === "about") {
+    return (
+      <AboutRailOptXPage
+        onBack={() => setStartupView("intro")}
+        onContinue={() => setStartupView("app")}
+      />
+    );
+  }
 
   return (
     <div className="flex min-h-screen" style={{ background: "#071522" }}>
