@@ -57,10 +57,12 @@ const workflowSteps = [
 ];
 
 const team = [
-  { name: '[TEAM MEMBER 1]', role: '[ROLE]' },
-  { name: '[TEAM MEMBER 2]', role: '[ROLE]' },
-  { name: '[TEAM MEMBER 3]', role: '[ROLE]' },
-  { name: '[TEAM MEMBER 4]', role: '[ROLE]' },
+  { name: 'Deepak Banga', role: 'Team Lead/backend' },
+  { name: 'Pratyush Kapoor', role: 'frontend/api integration' },
+  { name: 'Niyati Gupta', role: 'AI Developer' },
+  { name: 'Damanpreet Kaur', role: 'product designer' },
+  { name: 'Devansh', role: 'CNN/AI-ML' },
+  { name: 'Alankrita Garg', role: 'Presenter' },
 ];
 
 export function AboutRailOptXPage({ onBack, onContinue }: AboutRailOptXPageProps) {
