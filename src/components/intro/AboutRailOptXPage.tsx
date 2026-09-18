@@ -61,7 +61,7 @@ const team = [
   { name: 'Pratyush Kapoor', role: 'frontend/api integration' },
   { name: 'Niyati Gupta', role: 'Ui/UX Designer' },
   { name: 'Damanpreet Kaur', role: 'Data Analyst' },
-  { name: 'Devansh', role: 'CNN/AI-ML' },
+  { name: 'Devansh', role: 'Workflow Specialist' },
   { name: 'Alankrita Garg', role:'Presenter'},
 ];
 
